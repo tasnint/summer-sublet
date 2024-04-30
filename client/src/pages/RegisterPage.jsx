@@ -7,7 +7,6 @@ const RegisterPage = () => {
     firstName: "",
     lastName: "",
     email: "",
-    phoneNumber: "",
     password: "",
     confirmPassword: "",
     profileImage: null,
@@ -107,36 +106,8 @@ const RegisterPage = () => {
           />
 
           {!passwordMatch && (
-            <p style={{ color: "yellow", fontFamily: "Nunito"}}>Passwords don't match.</p>
+            <p style={{ color: "red" }}>Passwords are not matched!</p>
           )}
-          
-          <p>I am:</p>
-          <div>
-            <label>
-              <input 
-               type="radio"
-               name="role"
-               value="Offering Sublet"
-               checked={formData.role === "Offering Sublet"}
-               onChange={handleChange}
-              />
-              Offering a Sublet
-            </label>
-
-            <label>
-              <input
-               type="radio"
-               name="role"
-               value="Looking for a Sublet"
-               checked={formData.role === "Looking for Sublet"}
-               onChange={handleChange}
-              />
-              Looking for a House to Sublet
-            </label>
-
-
-
-          </div>
 
           <input
             id="image"
@@ -151,6 +122,36 @@ const RegisterPage = () => {
             <img src="/assets/addImage.png" alt="add profile photo" />
             <p>Upload Your Photo</p>
           </label>
+
+          <p style={{ color: "white", fontFamily: "Nunito"}}>I am:</p>
+          <div>
+            <label>
+              <input
+               type="radio"
+               name="role"
+               value="Offering Sublet"
+               checked={formData.role === "Offering Sublet"}
+               onChange={handleChange}
+              />
+              Offering a Sublet
+            </label>
+
+
+            <label>
+              <input
+               type="radio"
+               name="role"
+               value="Looking for Sublet"
+               checked={formData.role === "Looking for Sublet"}
+               onChange={handleChange}
+              />
+              Looking for a House to Sublet
+            </label>
+
+
+          </div>
+
+
 
           {formData.profileImage && (
             <img
